@@ -1,0 +1,27 @@
+import facebook
+def main ():
+# Completați aici valorile notate în pașii anteriori
+cfg = {
+&quot;page_id&quot; : &quot;VALUE&quot; , # Step 1
+&quot;access_token&quot; : &quot;VALUE&quot; # Step 3
+}
+api = get_api ( cfg )
+msg = &quot;Salut Lume!&quot;
+status = api . put_wall_post ( msg )
+def get_api ( cfg ):
+graph = facebook . GraphAPI (cfg [ &#39;access_token&#39; ])
+# Obțineți simbolul paginii pentru a fi postat ca pagină. Puteți sări peste
+# următoarele dacă doriți să postați ca dvs.
+resp = grafic . get_object ( &#39;eu / conturi&#39; )
+page_access_token = Niciuna
+for page resp [ &#39;date&#39; ]:
+if page [ &#39;id&#39; ] == cfg [ &#39;page_id&#39; ]:
+page_access_token = pagina [ &#39;access_token&#39; ]
+grafic = facebook .GraphAPI ( page_access_token )
+return graph
+# Puteți sări peste cele de mai sus dacă obțineți un simbol de pagină:
+# http : // stackoverflow . com / questions / 8231877 / facebook - access -
+token - for - pages
+# și faceți acel token de lungă durată ca la Pasul 3
+if __name__ == &quot;__main__&quot; :
+main ()
